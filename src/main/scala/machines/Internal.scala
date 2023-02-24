@@ -3,4 +3,5 @@ package machines
 import regex._
 import dfa._
 
-// TODO: Add your code below
+// implicit conversion from char to regular language
+given Conversion[Char, RegularLanguage] = Character(_)
