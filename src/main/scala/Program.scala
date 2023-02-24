@@ -44,9 +44,10 @@ def main() = {
   // TODO: Make it possible to replace the definition with:
   //
   //     val answer = "42"
+  // 
   //
 
-  val answer = Concat(four, two)
+  val answer = "42"
 
   require(answer matches "42")
 
