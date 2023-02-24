@@ -93,10 +93,10 @@ def main() = {
   //
   // TODO:  Make it possible to replace the definition with:
   //
-  //     val pi = '3' ~ '1' ~ '4'
+  val pi = '3' ~ '1' ~ '4'
   //
 
-  val pi = Concat(Character('3'), Concat(Character('1'), Character('4')))
+  // val pi = Concat(Character('3'), Concat(Character('1'), Character('4')))
 
   require(pi matches "314")
 
