@@ -24,4 +24,10 @@ extension(l1: RegularLanguage) {
     def ~(l2: RegularLanguage): RegularLanguage = Concat(l1, l2)
     def <*> = Star(l1)
     def <+> = Concat(l1, Star(l1))
+    def apply(n: Int): RegularLanguage = {
+        if (n == 1)
+            l1
+        else
+            Concat(l1, apply(n-1))
+    }
 }

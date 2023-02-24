@@ -139,10 +139,10 @@ def main() = {
   //
   // TODO:  Make it possible to replace the definition with:
   //
-  //     val cThree = 'c'{3}
+  val cThree = 'c'{3}
   //
 
-  val cThree = Concat(Character('c'), Concat(Character('c'), Character('c')))
+  // val cThree = Concat(Character('c'), Concat(Character('c'), Character('c')))
 
   require(cThree matches "ccc")
 
