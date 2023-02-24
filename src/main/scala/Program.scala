@@ -59,8 +59,7 @@ def main() = {
   // TODO: Make it possible to replace the definition with:
   //
   val digit = '0' || '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9'
-  println(digit)
-  //
+
 
   //val digit = Union(
   //  zero,
@@ -123,10 +122,10 @@ def main() = {
   //
   // TODO:  Make it possible to replace the definition with:
   //
-  //     val number = digit <+>
+  val number = digit <+>
   //
 
-  val number = Concat(digit, zeroOrMoreDigits)
+  // val number = Concat(digit, zeroOrMoreDigits)
 
   require(!(number matches ""))
   require(number matches "0")

@@ -22,4 +22,6 @@ given Conversion[String, RegularLanguage] with
 extension(l1: RegularLanguage) {
     def ||(l2: RegularLanguage): RegularLanguage = Union(l1, l2)
     def ~(l2: RegularLanguage): RegularLanguage = Concat(l1, l2)
+    def <*> = Star(l1)
+    def <+> = Concat(l1, Star(l1))
 }
