@@ -2,6 +2,7 @@ package machines
 
 import regex._
 import dfa._
+import machines._
 
 // implicit conversion from char to regular language
 given Conversion[Char, RegularLanguage] = Character(_)
@@ -15,3 +16,10 @@ given Conversion[String, RegularLanguage] with
         else 
             Concat(Character(s.head), apply(s.tail))
     }
+
+
+// operators
+// binary operator
+extension(l1: RegularLanguage) {
+    def ||(l2: RegularLanguage): RegularLanguage = Union(l1, l2)
+}
