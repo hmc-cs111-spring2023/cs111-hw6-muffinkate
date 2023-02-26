@@ -17,6 +17,9 @@ given Conversion[String, RegularLanguage] with
             Concat(Character(s.head), apply(s.tail))
     }
 
+// implicit conversion from regular language to DFA
+given Conversion[RegularLanguage, DFA] with
+    def apply()
 
 // operators
 extension(l1: RegularLanguage) {
@@ -30,4 +33,8 @@ extension(l1: RegularLanguage) {
         else
             Concat(l1, apply(n-1))
     }
+
+    // to DFA
+    def toDFA(using alphabet: Set[Char]): DFA = regexToDFA(l1, alphabet)
 }
+
