@@ -19,7 +19,10 @@ given Conversion[String, RegularLanguage] with
 
 // implicit conversion from regular language to DFA
 given Conversion[RegularLanguage, DFA] with
-    def apply()
+    def apply(r: RegularLanguage): DFA = {
+        val alphabet = chars(r)
+        r.toDFA
+    }
 
 // operators
 extension(l1: RegularLanguage) {
@@ -40,10 +43,11 @@ extension(l1: RegularLanguage) {
 
 
 // helper function for getting characters
-def chars(l: RegularLanguage): Set[Char] = l match
-    chars(Empty) = Set()
-    chars(Epsilon) = Set()
-    chars(c) = Set(c)
-    chars(Union(l1, l2)) = chars(l1) + chars(l2)
-    chars(Concat(l1, l2)) = chars(l1) + chars(l2)
-    chars(Star(l1)) = chars(l1)
+def chars(l: RegularLanguage): Set[Char] = l match {
+    case Empty => Set()
+    case Epsilon => Set()
+    case Character(c) => Set(c)
+    case Union(l1, l2) => chars(l1) ++ chars(l2)
+    case Concat(l1, l2) => chars(l1) ++ chars(l2)
+    case Star(l1) => chars(l1)
+}
