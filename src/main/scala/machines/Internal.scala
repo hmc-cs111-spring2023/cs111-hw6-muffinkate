@@ -38,3 +38,12 @@ extension(l1: RegularLanguage) {
     def toDFA(using alphabet: Set[Char]): DFA = regexToDFA(l1, alphabet)
 }
 
+
+// helper function for getting characters
+def chars(l: RegularLanguage): Set[Char] = l match
+    chars(Empty) = Set()
+    chars(Epsilon) = Set()
+    chars(c) = Set(c)
+    chars(Union(l1, l2)) = chars(l1) + chars(l2)
+    chars(Concat(l1, l2)) = chars(l1) + chars(l2)
+    chars(Star(l1)) = chars(l1)
