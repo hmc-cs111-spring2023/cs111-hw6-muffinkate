@@ -21,7 +21,7 @@ given Conversion[String, RegularLanguage] with
 given Conversion[RegularLanguage, DFA] with
     def apply(r: RegularLanguage): DFA = {
         val alphabet = chars(r)
-        r.toDFA
+        r.toDFA(using alphabet)
     }
 
 // operators
